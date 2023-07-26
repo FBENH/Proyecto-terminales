@@ -26,7 +26,16 @@
         </div>
         <div style="margin:auto">
             <h3>Viajes</h3>
-            <asp:GridView ID="grvViajes" runat="server" HorizontalAlign="Center" AllowPaging="True" OnPageIndexChanging="grvViajes_PageIndexChanging"></asp:GridView>
+            <asp:GridView ID="grvViajes" runat="server" HorizontalAlign="Center" AllowPaging="True" OnPageIndexChanging="grvViajes_PageIndexChanging" AutoGenerateColumns="False">
+                <Columns>
+                    <asp:BoundField DataField="Compañia" HeaderText="Compañía" />
+                    <asp:BoundField DataField="Destino" HeaderText="Destino" />
+                    <asp:BoundField DataField="FechaPartida" HeaderText="Fecha de partida" />
+                    <asp:BoundField DataField="FechaLlegada" HeaderText="Fecha de llegada" />
+                    <asp:BoundField DataField="Anden" HeaderText="Anden" />
+                    <asp:BoundField DataField="Precio" HeaderText="Precio" />
+                </Columns>
+            </asp:GridView>
         </div>
         <asp:Label ID="lblerror" runat="server" Text=""></asp:Label>
     </div>

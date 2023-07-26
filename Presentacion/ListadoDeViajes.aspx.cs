@@ -16,7 +16,7 @@ public partial class Default2 : System.Web.UI.Page
         {
             try
             {
-                List<Viaje> ListadoVaM = FabricaLogica.GetLogicaViaje().ListadoViajes(); //Cambiar por ListadoViajesAM , Esto es de prueba
+                List<Viaje> ListadoVaM = FabricaLogica.GetLogicaViaje().ListadoViajes(); //Cambiar por ListadoViajesAM , Esto es para que se vean registros y probar.
                 Session["ListadoVaM"] = ListadoVaM;
                 List<object> Listado = (from unV in ListadoVaM
                                        orderby unV.FechaHoraP
@@ -27,10 +27,10 @@ public partial class Default2 : System.Web.UI.Page
                                            FechaPartida = unV.FechaHoraP,
                                            FechaLlegada = unV.FechaHoraD,
                                            Anden = unV.Anden,
-                                           Precio = unV.Precio
+                                           Precio = "$"+Math.Floor(unV.Precio).ToString()
                                        }).ToList<object>();
 
-                 Session["MovGrilla"] = Listado;                 
+                 Session["MovGrilla"] = Listado;      //para paginación de grilla           
                  grvViajes.DataSource = Listado;
                  grvViajes.DataBind();                
                 
