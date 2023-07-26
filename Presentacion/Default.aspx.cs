@@ -25,7 +25,7 @@ public partial class _Default : System.Web.UI.Page
                                          FechaPartida = unV.FechaHoraP,
                                          Anden = unV.Anden,
                                          Destino = unV.Coleccion.Last().Ter.Ciudad,
-                                     }).ToList<object>(); 
+                                     }).ToList<object>(); //hola
             GVViajesFu.DataBind();
         }
         catch (Exception ex)
