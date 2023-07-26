@@ -1,0 +1,7 @@
+C:\Users\Fede\Desktop\obligatorio 2do 6-6-23\Proyecto\Proyecto obligatorio\Persistencia\bin\Debug\Persistencia.dll
+C:\Users\Fede\Desktop\obligatorio 2do 6-6-23\Proyecto\Proyecto obligatorio\Persistencia\bin\Debug\Persistencia.pdb
+C:\Users\Fede\Desktop\obligatorio 2do 6-6-23\Proyecto\Proyecto obligatorio\Persistencia\bin\Debug\Entidades Compartidas.dll
+C:\Users\Fede\Desktop\obligatorio 2do 6-6-23\Proyecto\Proyecto obligatorio\Persistencia\bin\Debug\Entidades Compartidas.pdb
+C:\Users\Fede\Desktop\obligatorio 2do 6-6-23\Proyecto\Proyecto obligatorio\Persistencia\obj\Debug\Persistencia.csprojResolveAssemblyReference.cache
+C:\Users\Fede\Desktop\obligatorio 2do 6-6-23\Proyecto\Proyecto obligatorio\Persistencia\obj\Debug\Persistencia.dll
+C:\Users\Fede\Desktop\obligatorio 2do 6-6-23\Proyecto\Proyecto obligatorio\Persistencia\obj\Debug\Persistencia.pdb

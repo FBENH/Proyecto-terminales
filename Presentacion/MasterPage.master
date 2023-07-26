@@ -1,0 +1,49 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    </head>
+<body>
+    <form id="form1" runat="server">
+    <div style="text-align:center">
+        <h1>Menú de administrador</h1>        
+        <div style="text-align:center; margin:auto; display:table">
+            <asp:Menu ID="Menu1" runat="server" BackColor="#F7F6F3" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="1em" ForeColor="#7C6F57" Orientation="Horizontal" StaticSubMenuIndent="10px" >
+                            <DynamicHoverStyle BackColor="#7C6F57" ForeColor="White" />
+                            <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                            <DynamicMenuStyle BackColor="#F7F6F3" />
+                            <DynamicSelectedStyle BackColor="#5D7B9D" />
+                            <Items>
+                                <asp:MenuItem Text="Inicio" Value="Inicio" NavigateUrl="~/Default.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="Usuarios" Value="Usuarios">
+                                    <asp:MenuItem Text="Alta" Value="Alta" NavigateUrl="~/AltaEmpleado.aspx"></asp:MenuItem>
+                                </asp:MenuItem>
+                                <asp:MenuItem Text="Compañías" Value="Compañías">
+                                    <asp:MenuItem Text="Alta" Value="Alta"></asp:MenuItem>
+                                </asp:MenuItem>
+                                <asp:MenuItem Text="Viajes" Value="Viajes">
+                                    <asp:MenuItem Text="Alta" Value="Alta"></asp:MenuItem>
+                                    <asp:MenuItem Text="Listado" Value="Listado"></asp:MenuItem>
+                                </asp:MenuItem>
+                                <asp:MenuItem Text="Terminales" Value="Terminales">
+                                    <asp:MenuItem Text="ABM Internacionales" Value="ABM Internacionales"></asp:MenuItem>
+                                    <asp:MenuItem Text="ABM Nacionales" Value="ABM Nacionales" NavigateUrl="~/ABMNacional.aspx"></asp:MenuItem>
+                                </asp:MenuItem>
+                            </Items>
+                            <StaticHoverStyle BackColor="#7C6F57" ForeColor="White" />
+                            <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                            <StaticSelectedStyle BackColor="#5D7B9D" />
+                        </asp:Menu>   
+            </div>      
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">         
+        </asp:ContentPlaceHolder>               
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,9 @@
+C:\Users\Fede\Desktop\obligatorio 2do 6-6-23\Proyecto\Proyecto obligatorio\Logica\bin\Debug\Logica.dll
+C:\Users\Fede\Desktop\obligatorio 2do 6-6-23\Proyecto\Proyecto obligatorio\Logica\bin\Debug\Logica.pdb
+C:\Users\Fede\Desktop\obligatorio 2do 6-6-23\Proyecto\Proyecto obligatorio\Logica\bin\Debug\Entidades Compartidas.dll
+C:\Users\Fede\Desktop\obligatorio 2do 6-6-23\Proyecto\Proyecto obligatorio\Logica\bin\Debug\Persistencia.dll
+C:\Users\Fede\Desktop\obligatorio 2do 6-6-23\Proyecto\Proyecto obligatorio\Logica\bin\Debug\Entidades Compartidas.pdb
+C:\Users\Fede\Desktop\obligatorio 2do 6-6-23\Proyecto\Proyecto obligatorio\Logica\bin\Debug\Persistencia.pdb
+C:\Users\Fede\Desktop\obligatorio 2do 6-6-23\Proyecto\Proyecto obligatorio\Logica\obj\Debug\Logica.csprojResolveAssemblyReference.cache
+C:\Users\Fede\Desktop\obligatorio 2do 6-6-23\Proyecto\Proyecto obligatorio\Logica\obj\Debug\Logica.dll
+C:\Users\Fede\Desktop\obligatorio 2do 6-6-23\Proyecto\Proyecto obligatorio\Logica\obj\Debug\Logica.pdb

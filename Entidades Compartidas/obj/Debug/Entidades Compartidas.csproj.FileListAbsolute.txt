@@ -1,0 +1,5 @@
+C:\Users\Fede\Desktop\obligatorio 2do 6-6-23\Proyecto\Proyecto obligatorio\Entidades Compartidas\bin\Debug\Entidades Compartidas.dll
+C:\Users\Fede\Desktop\obligatorio 2do 6-6-23\Proyecto\Proyecto obligatorio\Entidades Compartidas\bin\Debug\Entidades Compartidas.pdb
+C:\Users\Fede\Desktop\obligatorio 2do 6-6-23\Proyecto\Proyecto obligatorio\Entidades Compartidas\obj\Debug\Entidades Compartidas.dll
+C:\Users\Fede\Desktop\obligatorio 2do 6-6-23\Proyecto\Proyecto obligatorio\Entidades Compartidas\obj\Debug\Entidades Compartidas.pdb
+C:\Users\Fede\Desktop\obligatorio 2do 6-6-23\Proyecto\Proyecto obligatorio\Entidades Compartidas\obj\Debug\Entidades Compartidas.csprojResolveAssemblyReference.cache
