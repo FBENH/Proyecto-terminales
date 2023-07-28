@@ -36,12 +36,20 @@ namespace Logica
         public List<Viaje> ListadoViajes()
         {
             IPersistenciaViaje FViaje = FabricaPersistencia.GetPersistenciaViaje();
-            return FViaje.ListadoViajes();
+            List<Viaje> _lista = FViaje.ListadoViajes();
+            if (_lista.Count == 0)
+                throw new Exception("No hay registros de viajes");
+            else
+                return _lista;
         }
         public List<Viaje> ListadoViajesAM()
         {
             IPersistenciaViaje FViaje = FabricaPersistencia.GetPersistenciaViaje();
-            return FViaje.ListadoViajesAM();
+            List<Viaje> _lista = FViaje.ListadoViajesAM();
+            if (_lista.Count == 0)
+                throw new Exception("No hay registros de viajes");
+            else
+                return _lista;
         }
     }
 }

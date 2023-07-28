@@ -28,30 +28,31 @@ public partial class Default2 : System.Web.UI.Page
                                            FechaPartida = unV.FechaHoraP,
                                            FechaLlegada = unV.FechaHoraD,
                                            Anden = unV.Anden,
-                                           Precio = "$"+Math.Floor(unV.Precio).ToString()
+                                           Precio = "$" + Math.Floor(unV.Precio).ToString()
                                        }).ToList<object>();
 
                  Session["MovGrilla"] = Listado;      //para paginación de grilla           
                  grvViajes.DataSource = Listado;
-                 grvViajes.DataBind();                
-                
+                 grvViajes.DataBind();
+
                 List<string> Companias = (from unaC in ListadoVaM
-                                          group unaC by unaC.UnaComp into grupo
-                                          select grupo.Key.Nombre).Distinct().ToList();                
+                                          group unaC by unaC.UnaComp.Nombre into grupo
+                                          orderby grupo.Key
+                                          select grupo.Key).ToList();
+                Companias.Insert(0, "Todas");
                 ddlCompania.DataSource = Companias;               
-                ddlCompania.DataBind();
-                ddlCompania.Items.Add("Todas");
+                ddlCompania.DataBind();               
                 ddlCompania.SelectedValue = "Todas";
                 Session["CompSelec"] = ddlCompania.SelectedValue;
 
 
                 List<string> Destinos = (from unV in ListadoVaM
-                                         group unV by unV.Coleccion.Last() into grupo
-                                         orderby grupo.Key.Ter.Ciudad
-                                         select grupo.Key.Ter.Ciudad).Distinct().ToList();                
+                                         group unV by unV.Coleccion.Last().Ter.Ciudad into grupo
+                                         orderby grupo.Key
+                                         select grupo.Key).ToList();
+                Destinos.Insert(0, "Todos");                
                 ddlDestinoFinal.DataSource = Destinos;
-                ddlDestinoFinal.DataBind();
-                ddlDestinoFinal.Items.Add("Todos");
+                ddlDestinoFinal.DataBind();                
                 ddlDestinoFinal.SelectedValue = "Todos";
                 Session["DestSelec"] = ddlDestinoFinal.SelectedValue;
             }
@@ -64,43 +65,51 @@ public partial class Default2 : System.Web.UI.Page
 
 
     protected void CargarFiltros()
-    {        
-        List<Viaje> ListaFiltrada= (List<Viaje>)Session["ListadoVaM"];
-        if (ddlCompania.SelectedValue != "Todas")
+    {
+        try
         {
-            ListaFiltrada = (from unV in ListaFiltrada
-                             where unV.UnaComp.Nombre == ddlCompania.SelectedValue
-                             select unV).ToList<Viaje>();
+            List<Viaje> ListaFiltrada = (List<Viaje>)Session["ListadoVaM"];
+            if (ddlCompania.SelectedValue != "Todas")
+            {
+                ListaFiltrada = (from unV in ListaFiltrada
+                                 where unV.UnaComp.Nombre == ddlCompania.SelectedValue
+                                 select unV).ToList<Viaje>();
+            }
+            if (ddlDestinoFinal.SelectedValue != "Todos")
+            {
+                ListaFiltrada = (from unV in ListaFiltrada
+                                 where unV.Coleccion.Last().Ter.Ciudad == ddlDestinoFinal.SelectedValue
+                                 select unV).ToList<Viaje>();
+            }
+            if (string.IsNullOrWhiteSpace(txtFecha.Text) == false)
+            {
+                ListaFiltrada = (from unV in ListaFiltrada
+                                 where unV.FechaHoraP.Year == Convert.ToDateTime(txtFecha.Text).Year &&
+                                       unV.FechaHoraP.Month == Convert.ToDateTime(txtFecha.Text).Month &&
+                                       unV.FechaHoraP.Day == Convert.ToDateTime(txtFecha.Text).Day
+                                 select unV).ToList<Viaje>();
+            }
+            List<object> ListaFinal = (from unV in ListaFiltrada
+                                       orderby unV.FechaHoraP
+                                       select
+                                        new
+                                        {
+                                            Compañia = unV.UnaComp.Nombre,
+                                            Destino = unV.Coleccion.Last().Ter.Ciudad,
+                                            FechaPartida = unV.FechaHoraP,
+                                            FechaLlegada = unV.FechaHoraD,
+                                            Anden = unV.Anden,
+                                            Precio = "$" + Math.Floor(unV.Precio).ToString()
+                                        }).ToList<object>();
+            grvViajes.DataSource = ListaFinal;
+            grvViajes.DataBind();
+            Session["MovGrilla"] = ListaFinal;
         }
-        if (ddlDestinoFinal.SelectedValue != "Todos")
+        catch (Exception)
         {
-            ListaFiltrada = (from unV in ListaFiltrada
-                             where unV.Coleccion.Last().Ter.Ciudad == ddlDestinoFinal.SelectedValue
-                             select unV).ToList<Viaje>();
+            lblerror.Text = "No hay registros de viajes";           
         }
-        if (string.IsNullOrWhiteSpace(txtFecha.Text) == false)
-        {
-            ListaFiltrada = (from unV in ListaFiltrada
-                             where unV.FechaHoraP.Year == Convert.ToDateTime(txtFecha.Text).Year &&
-                                   unV.FechaHoraP.Month == Convert.ToDateTime(txtFecha.Text).Month &&
-                                   unV.FechaHoraP.Day == Convert.ToDateTime(txtFecha.Text).Day
-                             select unV).ToList<Viaje>();
-        }
-        List<object> ListaFinal = (from unV in ListaFiltrada
-                                   orderby unV.FechaHoraP
-                                   select
-                                    new
-                                    {
-                                      Compañia = unV.UnaComp.Nombre,
-                                      Destino = unV.Coleccion.Last().Ter.Ciudad,
-                                      FechaPartida = unV.FechaHoraP,
-                                      FechaLlegada = unV.FechaHoraD,
-                                      Anden = unV.Anden,
-                                      Precio = unV.Precio
-                                    }).ToList<object>();
-        grvViajes.DataSource = ListaFinal;
-        grvViajes.DataBind();
-        Session["MovGrilla"] = ListaFinal;    
+           
     }
 
     protected void btnFiltrar_Click(object sender, EventArgs e)
